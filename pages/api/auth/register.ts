@@ -33,6 +33,7 @@ export default async function handler(
 
     res.status(201).json({ message: 'Uživatel úspěšně vytvořen.', userId: user.id });
   } catch (error) {
-    res.status(500).json({ message: 'Něco se pokazilo na serveru.' });
+    console.error("Registrace Error:", error);
+    res.status(500).json({ message: 'Něco se pokazilo na serveru.', error: (error as Error).message });
   }
 }
