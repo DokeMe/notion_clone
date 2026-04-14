@@ -33,7 +33,10 @@ export default async function handler(
 
     res.status(201).json({ message: 'Uživatel úspěšně vytvořen.', userId: user.id });
   } catch (error) {
-    console.error("Registrace Error:", error);
-    res.status(500).json({ message: 'Něco se pokazilo na serveru.', error: (error as Error).message });
+    // Vracíme error jako čistý text, aby ho JSON.stringify nikdy nevynechal
+    res.status(500).json({ 
+      message: 'Chyba serveru (V2)', 
+      error: error ? String(error) : 'Neznámá chyba' 
+    });
   }
 }
