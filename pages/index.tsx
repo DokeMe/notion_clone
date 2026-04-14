@@ -115,9 +115,9 @@ const HomePage = () => {
         <div className="p-4 flex items-center justify-between hover:bg-gray-200/50 cursor-pointer transition-colors group">
           <div className="flex items-center gap-3 truncate">
             <div className="w-6 h-6 bg-blue-600 rounded text-xs flex items-center justify-center font-bold text-white shadow-sm">
-               {session.user.name?.[0].toUpperCase() || 'U'}
+               {session.user?.name?.[0]?.toUpperCase() || 'U'}
             </div>
-            <span className="font-semibold text-sm truncate text-gray-700">{session.user.name}&apos;s Notion</span>
+            <span className="font-semibold text-sm truncate text-gray-700">{session.user?.name || 'Uživatel'}&apos;s Notion</span>
           </div>
         </div>
         
